@@ -17,7 +17,26 @@ doc:
 
 # run test suite
 test *args:
+  # check that paged export without --features html matches
   tt run {{ args }}
+  # check that paged export with --features html matches
+  if \
+    A="$(typst compile --features html --format png tests/test1/test.typ - | sha1sum)" && \
+    B="$(typst compile --features html --format png tests/test1/ref-feature-html.typ - | sha1sum)" && \
+    test "$A" = "$B"; \
+  then exit 0; else \
+    echo "paged export differes between original and polyfilled code" >&2; \
+    exit 1; \
+  fi
+  # check that html export with --features html matches
+  if \
+    A="$(typst compile --features html --format html tests/test1/test.typ - | sha1sum)" && \
+    B="$(typst compile --features html --format html tests/test1/ref-feature-html.typ - | sha1sum)" && \
+    test "$A" = "$B"; \
+  then exit 0; else \
+    echo "html export differes between original and polyfilled code" >&2; \
+    exit 1; \
+  fi
 
 # update test cases
 update *args:
