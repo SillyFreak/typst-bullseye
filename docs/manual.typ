@@ -7,8 +7,7 @@
   package-meta: toml("/typst.toml").package,
   title: [Bullseye],
   subtitle: [Hit the target (HTML or paged/PDF) when styling your Typst document],
-  date: none,
-  // date: datetime(year: ..., month: ..., day: ...),
+  date: datetime(year: 2025, month: 7, day: 27),
 
   // logo: rect(width: 5cm, height: 5cm),
   // abstract: [
