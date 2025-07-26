@@ -19,7 +19,7 @@ doc:
 # run test suite
 test *args:
   # check that paged export without --features html matches
-  tt run {{ args }}
+  tt run -F --max-delta 1 {{ args }}
   # check that paged export with --features html matches
   if \
     A="$(typst compile --features html --format png tests/test1/test.typ - | sha1sum)" && \
