@@ -1,18 +1,18 @@
 # for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
 
 [package]
-name = "PACKAGE"
+name = "bullseye"
 version = "0.0.1"
 entrypoint = "src/lib.typ"
 authors = [
   "Clemens Koza <https://github.com/SillyFreak/>"
 ]
 license = "MIT"
-description = "my package"
+description = "Hit the target (HTML or paged/PDF) when styling your Typst document"
 # homepage = ""
-repository = "https://github.com/SillyFreak/typst-PACKAGE"
-keywords = []
-categories = []
+repository = "https://github.com/SillyFreak/typst-bullseye"
+keywords = ["html"]
+categories = ["scripting", "utility"]
 disciplines = []
 # compiler = ""
 exclude = [

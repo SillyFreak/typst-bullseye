@@ -1,4 +1,4 @@
-#import "/src/lib.typ" as PACKAGE: *
+#import "/src/lib.typ" as bullseye: *
 
 #set page(height: auto, margin: 5mm, fill: none)
 

@@ -1,8 +1,10 @@
 #import "template.typ" as template: *
-#import "/src/lib.typ" as PACKAGE
+#import "/src/lib.typ" as bullseye
 
 #show: manual(
   package-meta: toml("/typst.toml").package,
+  title: [Bullseye],
+  subtitle: [Hit the target (HTML or paged/PDF) when styling your Typst document],
   date: none,
   // date: datetime(year: ..., month: ..., day: ...),
 
@@ -11,17 +13,17 @@
   //   A PACKAGE for something
   // ],
 
-  scope: (PACKAGE: PACKAGE),
+  scope: (bullseye: bullseye),
 )
 
 = Introduction
 
-This is a PACKAGE for something.
+...
 
 = Module reference
 
 #module(
   read("/src/lib.typ"),
-  name: "PACKAGE",
+  name: "bullseye",
   label-prefix: none,
 )
