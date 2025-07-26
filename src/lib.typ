@@ -19,11 +19,12 @@
 ///
 /// When HTML is supported, this is equivalent to Typst's built-in
 /// #link("https://staging.typst.app/docs/reference/html/")[`std.html`]\; otherwise, it's the
-/// Bullseye module documented below. That module doesn't _support_ HTML, it just makes sure that
-/// calls to the html module that don't end up in a document don't prevent compilation.
+/// #link(<mod-html>)[Bullseye `html` module] documented below. That module doesn't _support_ HTML,
+/// it just makes sure that calls to the html module that don't end up in a document don't prevent
+/// compilation.
 ///
-/// This is a polyfill for an unstable Typst module. It may not properly emulate the built-in
-/// module (i.e. miss functions; no functionality beyond that is intended) if it is changed before
+/// This is a stub for an unstable Typst module. It may not properly emulate the built-in module
+/// (i.e. miss functions; no functionality beyond that is intended) if it is changed before
 /// stabilization.
 ///
 /// -> module
@@ -52,7 +53,7 @@
 ///
 /// -> any
 #let match-target(
-  /// the possible options. only named arguments with the keys `paged`, `html` and `default` are
+  /// The possible options. Only named arguments with the keys `paged`, `html` and `default` are
   /// allowed.
   /// -> arguments
   ..targets,
@@ -73,9 +74,9 @@
 }
 
 /// Wrapper around @@match-target() for target-specific show rules. All values should be functions
-/// that you'd ordinarily give as `foo` to a `show: foo` rule, i.e. a single-parameter function that
-/// transforms `content` into a new one. If no default is specified, it is set to `it => it`, i.e.
-/// non-covered targets remain unchanged.
+/// that you'd ordinarily use in a show rule, i.e. a single-parameter function that transforms some
+/// `content`. If no default is specified, it is set to `it => it`, i.e. non-covered targets remain
+/// unchanged.
 ///
 /// This function is _not_ contextual; it returns a function that provides its own context so that
 /// it can be used in show-everything rules (see examples below) that don't provide their own
@@ -95,7 +96,7 @@
 ///
 /// -> function
 #let show-target(
-  /// the possible options. only named arguments with the keys `paged`, `html` and `default` are
+  /// The possible options. Only named arguments with the keys `paged`, `html` and `default` are
   /// allowed. The `default` key defaults to `it => it`.
   /// -> arguments
   ..targets,
@@ -114,12 +115,12 @@
 /// ```typ
 /// #on-target(paged: [foo])  // returns either [foo] or none
 ///
-/// #(1, 2, ..on-target(paged: (3,)), 4)  // returns either (1, 2, 3, 4) or (1, 2, 4)
+/// #(1, ..on-target(paged: (2, 3)), 4)  // returns either (1, 2, 3, 4) or (1, 4)
 /// ```
 ///
 /// -> any
 #let on-target(
-  /// the possible options. only named arguments with the keys `paged`, `html` and `default` are
+  /// The possible options. Only named arguments with the keys `paged`, `html` and `default` are
   /// allowed. The `default` key defaults to `none`.
   /// -> arguments
   ..targets,

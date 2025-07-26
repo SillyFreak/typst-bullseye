@@ -13,6 +13,7 @@ doc:
   typst compile --input theme=dark docs/thumbnail.typ thumbnail-dark.svg
   for f in $(find gallery -maxdepth 1 -name '*.typ'); do \
     typst compile "$f"; \
+    typst compile --features html --format html "$f"; \
   done
 
 # run test suite
