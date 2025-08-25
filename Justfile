@@ -16,6 +16,10 @@ doc:
     typst compile --features html --format html "$f"; \
   done
 
+# preview the book locally
+serve-book:
+  shiroa serve --mode static-html docs/book/
+
 # run test suite
 test *args:
   # check that paged export without --features html matches
