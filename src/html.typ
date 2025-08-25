@@ -11,7 +11,7 @@
 ///
 /// This is useful for writing code where alternative content for HTML is specified, but only
 /// rendered when HTML support is activated.
-#let elem(..args) = context panic()
+#let elem(..args) = context panic("bullseye's html.elem() must not be present when compiling a document to PDF/SVG/...")
 
 /// A stub function for #link("https://staging.typst.app/docs/reference/html/frame/")[`std.html.frame()`].
 /// This function simply contextually panics, i.e. it can be called but its result must not appear
@@ -26,4 +26,4 @@
 ///
 /// This is useful for writing code where alternative content for HTML is specified, but only
 /// rendered when HTML support is activated.
-#let frame(..args) = context panic()
+#let frame(..args) = context panic("bullseye's html.frame() must not be present when compiling a document to PDF/SVG/...")
