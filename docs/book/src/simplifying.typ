@@ -1,9 +1,9 @@
 #import "@preview/shiroa:0.2.3": *
 #import "@preview/codly:1.3.0"
 
-#import "../book.typ" as man-style: ref-fn, blog-post-raw
+#import "../book.typ" as man-style: ref-fn, blog-post-raw, book-page
 
-= Simplifying target-specific Typst <simplifying>
+#show: book-page.with(title: [Simplifying target-specific Typst])
 
 When targeting both PDF and HTML, it's unavoidable to have some content that must be treated differently depending on the output format.
 This resulted in two fundamental pain points:

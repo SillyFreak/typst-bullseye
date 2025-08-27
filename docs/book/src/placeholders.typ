@@ -1,9 +1,9 @@
 #import "@preview/shiroa:0.2.3": *
 #import "@preview/codly:1.3.0"
 
-#import "../book.typ" as man-style: ref-fn, blog-post-raw
+#import "../book.typ" as man-style: ref-fn, blog-post-raw, book-page
 
-= Experimental feature placeholders <placeholders>
+#show: book-page.with(title: [Experimental feature placeholders])
 
 Typst's #link("https://staging.typst.app/docs/reference/html/")[`html` module] and the #link("https://staging.typst.app/docs/reference/foundations/target/")[`target()` function] for determining the kind of output are currently unstable, meaning they can't be used without a feature flag.
 In #cross-link("/src/intro.typ", reference: <target-conditional>)[Target-conditional code], we saw how this leads to problems even when compiling to PDF, simply because the document is _prepared_ for HTML output:

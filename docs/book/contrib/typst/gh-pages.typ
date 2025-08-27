@@ -44,20 +44,6 @@
 ) = themes;
 #let theme-box = theme-box.with(themes: themes)
 
-// Fonts
-#let main-font = (
-  "Charter",
-  "Source Han Serif SC",
-  // "Source Han Serif TC",
-  // shiroa's embedded font
-  "Libertinus Serif",
-)
-#let code-font = (
-  "BlexMono Nerd Font Mono",
-  // shiroa's embedded font
-  "DejaVu Sans Mono",
-)
-
 // Sizes
 #let main-size = if is-web-target {
   16pt
@@ -222,11 +208,11 @@
     }
 
     starlight.with(
-      include "/github-pages/docs/book.typ",
+      include "../../book.typ",
       title: title,
-      site-title: [Shiroa],
+      site-title: [Bullseye],
       description: description,
-      github-link: "https://github.com/Myriad-Dreamin/shiroa",
+      github-link: "https://github.com/SillyFreak/typst-bullseye",
     )
   } else {
     it => it
@@ -234,7 +220,6 @@
 
   // Set main text
   set text(
-    font: main-font,
     size: main-size,
     fill: main-color,
     lang: "en",
@@ -248,7 +233,6 @@
   // code block setting
   show: code-block-rules.with(
     themes: themes,
-    code-font: code-font,
     set-raw-theme: (theme, it) => {
       set raw(theme: theme) if theme.len() > 0
       it

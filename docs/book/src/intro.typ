@@ -1,7 +1,9 @@
 #import "@preview/shiroa:0.2.3": *
 #import "@preview/codly:1.3.0"
 
-= Introduction
+#import "../book.typ": book-page
+
+#show: book-page.with(title: [Introduction])
 
 Bullseye supports you in writing packages and documents that target multiple outputs, i.e. currently (Typst 0.13) `"paged"` (PDF, image) and `"html"`.
 

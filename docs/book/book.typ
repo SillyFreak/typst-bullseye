@@ -1,6 +1,10 @@
 #import "@preview/crudo:0.1.1"
 #import "@preview/shiroa:0.2.3": *
+
 #show: book
+
+// re-export page template
+#import "contrib/typst/gh-pages.typ": project as book-page, heading-reference
 
 #let ref-fn(body) = raw(body)
 #let show-reference(lbl, body) = raw(body)
