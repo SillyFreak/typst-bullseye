@@ -1,5 +1,5 @@
 #import "@preview/shiroa:0.2.3": *
-#import "@preview/codly:1.3.0"
+#import "@preview/crudo:0.1.1"
 
 #import "../book.typ": book-page
 
@@ -19,7 +19,7 @@ then look at the helper functions in #cross-link("/src/simplifying.typ")[Simplif
 Let's say you're writing a fairly simple blog.
 You draft a Typst document with its content, which looks roughly like this:
 
-#raw(block: true, lang: "typ", read("/gallery/no-gallery/naive-blog-post.typ"))
+#raw(block: true, lang: "typ", read("/gallery/no-gallery/naive-blog-post.typ").trim(at: end))
 
 this is still incomplete, but looks good in the preview.
 You then try to compile it to HTML:
@@ -74,8 +74,19 @@ Our issue boils down to us wanting to conditionally apply certain styling and co
 Typst's #link("https://staging.typst.app/docs/reference/foundations/target/")[`target()` function] can be used to (contextually) determine what kind of output some content is rendered in.
 Using that, you could rewrite your code like this (this is the code Bullseye will subsequently simplify, so feel free to only skim it):
 
-#codly.codly(ranges: ((none, 21), (36, none)), smart-skip: true)
-#raw(block: true, lang: "typ", read("/gallery/no-gallery/manual-blog-post.typ"))
+#crudo.join(
+  crudo.lines(
+    raw(block: true, lang: "typ", read("/gallery/no-gallery/manual-blog-post.typ").trim(at: end)),
+    "-21"
+  ),
+  ```
+  ...
+  ```,
+  crudo.lines(
+    raw(block: true, lang: "typ", read("/gallery/no-gallery/manual-blog-post.typ").trim(at: end)),
+    "35-"
+  ),
+)
 
 That's quite a bit of code, but ...
 

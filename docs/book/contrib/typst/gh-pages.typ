@@ -237,6 +237,7 @@
       set raw(theme: theme) if theme.len() > 0
       it
     },
+    zebraw: "@preview/zebraw:0.5.5",
   )
 
   // Main body.

@@ -1,5 +1,5 @@
 #import "@preview/shiroa:0.2.3": *
-#import "@preview/codly:1.3.0"
+#import "@preview/crudo:0.1.1"
 
 #import "../book.typ" as man-style: ref-fn, blog-post-raw, book-page
 
@@ -18,8 +18,10 @@ Bullseye tackles both of these problems. Let's look at some specific issues from
 
 The original blog post contained the following rules that shouldn't be active for the HTML target:
 
-#codly.codly(ranges: ((2, 2), (4, 5)), smart-skip: false)
-#raw(block: true, lang: "typ", read("/gallery/no-gallery/naive-blog-post.typ"))
+#crudo.lines(
+  raw(block: true, lang: "typ", read("/gallery/no-gallery/naive-blog-post.typ")),
+  "2-5"
+)
 
 Bullseye provides the #ref-fn("show-target()") function for this purpose, which you can use similar to a regular template function.
 Here is how the styles above would be extracted to a regular template:
@@ -35,8 +37,10 @@ Here is how the styles above would be extracted to a regular template:
 
 And here is using #ref-fn("show-target()") for this:
 
-#codly.codly(ranges: ((1, 2), (5, 11)), smart-skip: false)
-#blog-post-raw
+#crudo.lines(
+  blog-post-raw,
+  "1-11"
+)
 
 The template function is wrapped and passed as a named argument `paged`, meaning the show rule is only applied if the output format is PDF or one of the image formats.
 Multiple arguments can be specified, to apply different show rules for different formats.
@@ -44,26 +48,34 @@ Multiple arguments can be specified, to apply different show rules for different
 This function can also be used to style specific elements, not just for document-wide settings.
 The following show rules from #cross-link("/src/intro.typ", reference: <target-conditional>)[Target-conditional code] were put into a block to only be applied for HTML output:
 
-#codly.codly(ranges: ((1, 1), (4, 4), (6, 9), (16, 16)), smart-skip: false)
-#raw(block: true, lang: "typ", read("/gallery/no-gallery/manual-blog-post.typ"))
+#crudo.lines(
+  raw(block: true, lang: "typ", read("/gallery/no-gallery/manual-blog-post.typ")),
+  "1-16"
+)
 
 Instead of moving both show rules into one shared conditional, #ref-fn("show-target()") makes it painless to individually apply them where you want to have them in your template:
 
-#codly.codly(ranges: ((13, 15), (17, 19)), smart-skip: false)
-#blog-post-raw
+#crudo.lines(
+  blog-post-raw,
+  "13-19"
+)
 
 == Producing target-specific content <content>
 
 One of the "features" of the blog post was a "back to top" link produced in the HTML output.
 To conditionally produce this link, the document contained the following code:
 
-#codly.codly(range: (36, 36), smart-skip: false)
-#raw(block: true, lang: "typ", read("/gallery/no-gallery/manual-blog-post.typ"))
+#crudo.lines(
+  raw(block: true, lang: "typ", read("/gallery/no-gallery/manual-blog-post.typ")),
+  "36"
+)
 
 This isn't too complex, but Bullseye also has a utility function #ref-fn("on-target()") for producing a value only for some output formats, and `none` for others:
 
-#codly.codly(range: (38, 38), smart-skip: false)
-#blog-post-raw
+#crudo.lines(
+  blog-post-raw,
+  "38"
+)
 
 This mirrors the structure for show rules.
 Like #ref-fn("show-target()"), #ref-fn("on-target()") can also accept multiple named arguments.

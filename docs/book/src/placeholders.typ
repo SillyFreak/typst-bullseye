@@ -1,5 +1,5 @@
 #import "@preview/shiroa:0.2.3": *
-#import "@preview/codly:1.3.0"
+#import "@preview/crudo:0.1.1"
 
 #import "../book.typ" as man-style: ref-fn, blog-post-raw, book-page
 
@@ -44,8 +44,10 @@ and contains a stub
 #man-style.show-reference(<mod-html>, "html") module that allows compiling code _creating_ but not _rendering_ HTML elements.
 These features were used in the previous examples, as they were included in this wildcard import:
 
-#codly.codly(range: (1, 1), smart-skip: false)
-#blog-post-raw
+#crudo.lines(
+  blog-post-raw,
+  "1"
+)
 
 Whether the placeholders or the real Typst code is executed depends on whether the HTML feature is enabled:
 
