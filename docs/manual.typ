@@ -79,7 +79,7 @@ It compiles with some important warnings: the resulting HTML file has no image a
 </figure>
 <p>Lorem ipsum dolor sit amet.</p>
 <div></div>  <!-- oops! -->
-<p>(back to top)</p>  <!-- not a lik yet -->
+<p>(back to top)</p>  <!-- not a link yet -->
 ```
 
 == Target-conditional code <target-conditional>
