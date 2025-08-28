@@ -33,3 +33,8 @@
 
 - #chapter("src/simplifying.typ")[Simplifying target-specific Typst]
 - #chapter("src/placeholders.typ")[Experimental feature placeholders]
+
+= Reference
+
+- #chapter("src/reference/bullseye.typ")[`bullseye`]
+- #chapter("src/reference/bullseye.html.typ")[`bullseye.html`]
