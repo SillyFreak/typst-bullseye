@@ -29,12 +29,12 @@
   summary: summary,
 )
 
-#prefix-chapter("src/intro.typ")[Introduction]
+#prefix-chapter("introduction.typ")[Introduction]
 
-- #chapter("src/simplifying.typ")[Simplifying target-specific Typst]
-- #chapter("src/placeholders.typ")[Experimental feature placeholders]
+- #chapter("simplifying.typ")[Simplifying target-specific Typst]
+- #chapter("placeholders.typ")[Experimental feature placeholders]
 
 = Reference
 
-- #chapter("src/reference/bullseye.typ")[`bullseye`]
-- #chapter("src/reference/bullseye.html.typ")[`bullseye.html`]
+- #chapter("reference/bullseye.typ")[`bullseye`]
+- #chapter("reference/bullseye.html.typ")[`bullseye.html`]

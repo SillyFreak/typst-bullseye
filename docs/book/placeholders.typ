@@ -1,7 +1,7 @@
 #import "@preview/shiroa:0.2.3": *
 #import "@preview/crudo:0.1.1"
 
-#import "../book.typ" as man-style: ref-fn, blog-post-raw, book-page
+#import "book.typ" as man-style: ref-fn, blog-post-raw, book-page
 
 #show: book-page.with(title: [Experimental feature placeholders])
 
