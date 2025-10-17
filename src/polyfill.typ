@@ -1,5 +1,3 @@
-#import "typed-html.typ": *
-
 /// A stub function for #link("https://staging.typst.app/docs/reference/html/elem/")[`std.html.elem()`].
 /// This function simply contextually panics, i.e. it can be called but its result must not appear
 /// in a document:

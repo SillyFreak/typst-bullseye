@@ -281,7 +281,7 @@ when not exporting to HTML, if a #link("https://typst.app/docs/reference/html/el
 == `bullseye.html` <mod-html>
 
 #module(
-  read("/src/html.typ"),
+  read("/src/polyfill.typ"),
   name: "bullseye.html",
   show-module-name: false,
   label-prefix: "html",

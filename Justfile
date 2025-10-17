@@ -44,7 +44,8 @@ update *args:
   tt update {{ args }}
 
 typed-html:
-  cargo run --bin typed-html > src/typed-html.typ
+  cargo run --bin typed-html '"polyfill.typ"' > src/no-html.typ
+  cargo run --bin typed-html 'std.html' > src/html-0.13.typ
 
 # package the library into the specified destination folder
 package target:

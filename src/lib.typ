@@ -29,11 +29,17 @@
 ///
 /// -> module
 #let html = {
-  if "html" in dictionary(std) {
-    std.html
-  } else {
-    import "html.typ"
+  if "html" not in dictionary(std) {
+    // polyfill all
+    import "no-html.typ" as html
     html
+  } else if "a" not in dictionary(std.html) {
+    // polyfill typed HTML
+    import "html-0.13.typ" as html
+    html
+  } else {
+    // proper HTML
+    std.html
   }
 }
 
