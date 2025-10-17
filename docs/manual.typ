@@ -253,16 +253,18 @@ These features were used in the previous examples, as they were included in this
 #codly.codly(range: (1, 1), smart-skip: false)
 #blog-post-raw
 
-Whether the placeholders or the real Typst code is executed depends on whether the HTML feature is enabled:
+When using Typst 0.13 with HTML support enabled, the #link("https://staging.typst.app/docs/reference/html/typed/")[typed HTML API] introduced in Typst 0.14 is also polyfilled. Whether the placeholders or the real Typst code is executed depends on whether the HTML feature is enabled:
 
 - HTML support is not enabled: Bullseye's placeholders are used.
   The #ref-fn("target()") function always returns `"paged"` (which is correct when HTML export isn't supported),
-  and the #ref-fn("html.elem()") and #ref-fn("html.frame()") functions don't do anything useful.
+  and the #ref-fn("html.elem()") and #ref-fn("html.frame()") functions, as well as the typed HTML function such as #link("https://staging.typst.app/docs/reference/html/typed/#functions-div")[`html.div()`], don't do anything useful.
   If you tried to unconditionally put an HTML element such as `back-to-top` into your document, it would panic.
 
-- HTML support is enabled: Bullseye's exports simply forward to the standard ones.
+- HTML support is enabled in Typst 0.13: The `html.elem` and `html.frame` functions are taken from actual Typst, and typed HTML functions such as `html.div()` are polyfilled in a primitive way.
   The #ref-fn("target()") function returns the same result as #link("https://typst.app/docs/reference/foundations/target/")[`std.target()`],
-  and #ref-fn("html") is an exact alias to #link("https://typst.app/docs/reference/html/")[`std.html`].
+
+- HTML support is enabled in Typst 0.14: Bullseye's exports simply forward to the standard ones.
+  #ref-fn("html") is an exact alias to #link("https://typst.app/docs/reference/html/")[`std.html`].
   This is is independent from the export _target_, but it usually won't make a difference if not exporting to HTML.
 
 There is one small difference between the stubbed and original #ref-fn("html") module:
@@ -279,6 +281,15 @@ when not exporting to HTML, if a #link("https://typst.app/docs/reference/html/el
 )
 
 == `bullseye.html` <mod-html>
+
+In addition to the functions shown below, the `html` module exported by Bullseye contains typed HTML polyfills.
+For example, the #link("https://staging.typst.app/docs/reference/html/typed/#functions-div")[`html.div()`] function is polyfilled like this:
+
+```typ
+#let div(..args) = elem("div", ..args.pos(), attrs: args.named())
+```
+
+The `elem` function used here is either the #link("https://typst.app/docs/reference/html/elem/")[`std.html.elem()`] function of Typst, or the #ref-fn("html.elem()") from below. In the latter case, this polyfill only provides stub functionality.
 
 #module(
   read("/src/polyfill.typ"),

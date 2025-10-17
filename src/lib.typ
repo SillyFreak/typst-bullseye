@@ -18,10 +18,10 @@
 /// The `html` module.
 ///
 /// When HTML is supported, this is equivalent to Typst's built-in
-/// #link("https://staging.typst.app/docs/reference/html/")[`std.html`]\; otherwise, it's the
-/// #link(<mod-html>)[Bullseye `html` module] documented below. That module doesn't _support_ HTML,
-/// it just makes sure that calls to the html module that don't end up in a document don't prevent
-/// compilation.
+/// #link("https://staging.typst.app/docs/reference/html/")[`std.html`] (plus polyfills for typed
+/// HTML if on Typst 0.13); otherwise, it's the #link(<mod-html>)[Bullseye `html` module] documented
+/// below. That module doesn't _support_ HTML, it just makes sure that calls to the html module that
+/// don't end up in a document don't prevent compilation.
 ///
 /// This is a stub for an unstable Typst module. It may not properly emulate the built-in module
 /// (i.e. miss functions; no functionality beyond that is intended) if it is changed before
