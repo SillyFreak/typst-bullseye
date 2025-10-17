@@ -240,7 +240,7 @@ Some workarounds for this problem include
   $ typst compile --features html blog-post.typ
   ```
   This is especially annoying when writing packages for people who may or may not be interested in HTML export.
-  Also, this requires different approaches for plain CLI compilation (demonstrated above), Tinymist users, or web app users (not supported),
+  Also, this requires different approaches for plain CLI compilation (demonstrated above), Tinymist users, or web app users (not supported).
 
 For this reason, Bullseye polyfills
 #footnote[a #link("https://en.wikipedia.org/wiki/Polyfill_%28programming%29")[polyfill] is #quote[code that implements a new standard feature of a deployment environment within an old version of that environment]]
