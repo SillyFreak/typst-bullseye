@@ -1,0 +1,7 @@
+[package]
+name = "typed-html"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+typst-assets = { git = "https://github.com/typst/typst-assets", rev = "fbf00f9" }

@@ -43,6 +43,9 @@ test *args:
 update *args:
   tt update {{ args }}
 
+typed-html:
+  cargo run --bin typed-html > src/typed-html.typ
+
 # package the library into the specified destination folder
 package target:
   ./scripts/package "{{target}}"
