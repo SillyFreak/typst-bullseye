@@ -85,7 +85,7 @@ It compiles with some important warnings: the resulting HTML file has no image a
 == Target-conditional code <target-conditional>
 
 Our issue boils down to us wanting to conditionally apply certain styling and content.
-Typst's #link("https://staging.typst.app/docs/reference/foundations/target/")[`target()` function] can be used to (contextually) determine what kind of output some content is rendered in.
+Typst's #link("https://typst.app/docs/reference/foundations/target/")[`target()` function] can be used to (contextually) determine what kind of output some content is rendered in.
 Using that, you could rewrite your code like this (this is the code Bullseye will subsequently simplify, so feel free to only skim it):
 
 #codly.codly(ranges: ((none, 21), (36, none)), smart-skip: true)
@@ -211,7 +211,7 @@ Both these functions are built on top of #ref-fn("match-target()"), which you ca
 
 = Experimental feature placeholders <placeholders>
 
-Typst's #link("https://staging.typst.app/docs/reference/html/")[`html` module] and the #link("https://staging.typst.app/docs/reference/foundations/target/")[`target()` function] for determining the kind of output are currently unstable, meaning they can't be used without a feature flag.
+Typst's #link("https://typst.app/docs/reference/html/")[`html` module] and the #link("https://typst.app/docs/reference/foundations/target/")[`target()` function] for determining the kind of output are currently unstable, meaning they can't be used without a feature flag.
 In @target-conditional, we saw how this leads to problems even when compiling to PDF, simply because the document is _prepared_ for HTML output:
 
 ```
@@ -261,12 +261,12 @@ Whether the placeholders or the real Typst code is executed depends on whether t
   If you tried to unconditionally put an HTML element such as `back-to-top` into your document, it would panic.
 
 - HTML support is enabled: Bullseye's exports simply forward to the standard ones.
-  The #ref-fn("target()") function returns the same result as #link("https://staging.typst.app/docs/reference/foundations/target/")[`std.target()`],
-  and #ref-fn("html") is an exact alias to #link("https://staging.typst.app/docs/reference/html/")[`std.html`].
+  The #ref-fn("target()") function returns the same result as #link("https://typst.app/docs/reference/foundations/target/")[`std.target()`],
+  and #ref-fn("html") is an exact alias to #link("https://typst.app/docs/reference/html/")[`std.html`].
   This is is independent from the export _target_, but it usually won't make a difference if not exporting to HTML.
 
 There is one small difference between the stubbed and original #ref-fn("html") module:
-when not exporting to HTML, if a #link("https://staging.typst.app/docs/reference/html/elem/")[`std.html.elem()`] appears in the document, it will result in a warning; Bullseye's #ref-fn("html.elem()") will panic instead!
+when not exporting to HTML, if a #link("https://typst.app/docs/reference/html/elem/")[`std.html.elem()`] appears in the document, it will result in a warning; Bullseye's #ref-fn("html.elem()") will panic instead!
 
 #pagebreak()
 
