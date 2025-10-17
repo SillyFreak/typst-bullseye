@@ -8,3 +8,13 @@ Hello World #context target()
 
 // rendering of html produces a warning on the wrong target
 // #context if target() != "html" { test-div }
+
+
+// calling html functions even without having checked the target because HTML is _supported_
+// (we're also testing on 0.13, so don't use typed HTML)
+#let test-div = html.elem("div")[Test]
+// only rendering html when target is correct
+#context if target() == "html" { test-div }
+
+// rendering of html produces a warning on the wrong target
+// #context if target() != "html" { test-div }

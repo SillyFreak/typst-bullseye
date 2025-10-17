@@ -11,3 +11,12 @@ Hello World #context target()
 
 // rendering of html won't work on the wrong target
 // #context if target() != "html" { test-div }
+
+
+// calling typed html functions even without having checked the target
+#let test-div = html.div[Test]
+// only rendering html when target is correct
+#context if target() == "html" { test-div }
+
+// rendering of html won't work on the wrong target
+// #context if target() != "html" { test-div }
